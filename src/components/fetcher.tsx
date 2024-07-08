@@ -79,9 +79,6 @@ export default function ApiFetcher() {
 			<div>
 				{isError?.error ? <Alert type="error" message={isError.message} /> : <Alert type="success" message={isError?.message ?? "Request Succesfull"} />}
 			</div>
-			<div>
-				{JSON.stringify(params, null, 2)}
-			</div>
 		</div>
 	)
 }
