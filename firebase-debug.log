@@ -1,0 +1,39 @@
+[debug] [2024-07-08T20:17:51.290Z] ----------------------------------------------------------------------
+[debug] [2024-07-08T20:17:51.294Z] Command:       /nix/store/2hxfkbdbwh2s7rc20khzq8sjnywq0xs8-nodejs-18.19.1/bin/node /nix/store/c39bwyniy6knk2q0pywvqhzcrm98chdl-firebase-tools-13.9.0/lib/node_modules/firebase-tools/lib/bin/firebase.js init hosting
+[debug] [2024-07-08T20:17:51.294Z] CLI Version:   13.9.0
+[debug] [2024-07-08T20:17:51.295Z] Platform:      linux
+[debug] [2024-07-08T20:17:51.295Z] Node Version:  v18.19.1
+[debug] [2024-07-08T20:17:51.296Z] Time:          Mon Jul 08 2024 20:17:51 GMT+0000 (Coordinated Universal Time)
+[debug] [2024-07-08T20:17:51.296Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2024-07-08T20:17:51.307Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2024-07-08T20:17:51.307Z] > authorizing via signed-in user (ddhanushhv@gmail.com)
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  /home/user/app-router
+
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] but for now we'll just set up a default project.
+[info] 
+[info] i  If you want to create a project in a Google Cloud organization or folder, please use "firebase projects:create" instead, and return to this command when you've created the project. 
+[debug] [2024-07-08T20:18:29.200Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects [none]
+[debug] [2024-07-08T20:18:29.202Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects {"projectId":"api-parser","name":"api-parser"}
+[debug] [2024-07-08T20:18:30.085Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects 409
+[debug] [2024-07-08T20:18:30.085Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects {"error":{"code":409,"message":"Requested entity already exists","status":"ALREADY_EXISTS"}}
+[debug] [2024-07-08T20:18:30.115Z] FirebaseError: HTTP Error: 409, Requested entity already exists
+    at responseToError (/nix/store/c39bwyniy6knk2q0pywvqhzcrm98chdl-firebase-tools-13.9.0/lib/node_modules/firebase-tools/lib/responseToError.js:49:12)
+    at RetryOperation._fn (/nix/store/c39bwyniy6knk2q0pywvqhzcrm98chdl-firebase-tools-13.9.0/lib/node_modules/firebase-tools/lib/apiv2.js:305:77)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+[error] 
+[error] Error: Failed to create project because there is already a project with ID api-parser. Please try again with a unique project ID.
