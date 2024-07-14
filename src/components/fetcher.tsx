@@ -41,11 +41,7 @@ export default function ApiFetcher() {
 
 	const handleCopyJsonData = async () => {
 		try {
-			const textArea = document.getElementById("jsonData") as HTMLTextAreaElement;
-			textArea?.focus();
-			textArea?.select();
-			document.execCommand("copy");
-			textArea.blur();
+			navigator.clipboard.writeText(jsonData);
 			setError({ error: false, message: "Copied to clipboard " });
 		} catch (err) {
 			setError({ error: true, message: "Failed to copy to clipboard " });
