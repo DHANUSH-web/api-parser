@@ -1,36 +1,18 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## API Parser
+It is simple API exploring or testing web based app developed with Next.js developed by [Dhanush H V](https://dhanushhv.vercel.app).
+The app in its initial stage of development and anyone is allowed to contribute to this repo to make it more useful, free and open source web app.
 
-## Getting Started
-
-First, run the development server:
-
+**API Parser Website** - [Open in new tab](https://api-parser.vercel.app)
+**Other Projects** - [View more projects](https://github.com/DHANUSH-web?tab=repositories)
+**Developer Website** - [See Developer](https://dhanushhv.vercel.app/about)
+<hr/>
+### Clone
+Clone the repo to explore the code
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone https://github.com/DHANUSH-web/api-parser.git 
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+**Note: Fork the repo into your account to contribute**
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+#### Thank you for everyone who are or will be contributing to this repo
+## Happy Coding Folks!!
