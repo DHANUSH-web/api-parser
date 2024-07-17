@@ -8,9 +8,9 @@ The app in its initial stage of development and anyone is allowed to contribute 
 <hr/>
 ### Clone
 Clone the repo to explore the code
-```bash
-git clone https://github.com/DHANUSH-web/api-parser.git 
-```
+<code>
+  git clone https://github.com/DHANUSH-web/api-parser.git 
+</code>
 
 **Note: Fork the repo into your account to contribute**
 
