@@ -5,12 +5,13 @@ The app in its initial stage of development and anyone is allowed to contribute 
 - **API Parser Website** - [Open in new tab](https://api-parser.vercel.app)
 - **Other Projects** - [View more projects](https://github.com/DHANUSH-web?tab=repositories)
 - **Developer Website** - [See Developer](https://dhanushhv.vercel.app/about)
-<hr/>
-### Clone
+
+### Clone Repo
 Clone the repo to explore the code
-<code>
+
+```sh
   git clone https://github.com/DHANUSH-web/api-parser.git 
-</code>
+```
 
 **Note: Fork the repo into your account to contribute**
 
