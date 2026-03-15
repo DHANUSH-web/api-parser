@@ -1,11 +1,12 @@
 'use client';
 
-import { Badge, TextField, TextArea, Tooltip, Button, Select, Tabs, Flex, Box, Text, Card } from "@radix-ui/themes";
+import { Badge, TextField, Tooltip, Button, Select, Tabs, Flex, Box, Text, Card } from "@radix-ui/themes";
 import { Search, Clipboard, Play } from "lucide-react";
 import { Roboto_Mono } from "next/font/google";
 import { ChangeEvent, useState } from "react";
 import axios, { isAxiosError, Method } from "axios";
 import Alert from "./alert";
+import Editor from "@monaco-editor/react";
 
 const fontMono = Roboto_Mono({ subsets: ["latin"] });
 
@@ -132,24 +133,24 @@ export default function ApiFetcher() {
 
 						<Box pt="3">
 							<Tabs.Content value="headers">
-								<TextArea
-									placeholder="Headers (JSON format)"
-									resize="vertical"
-									size="2"
-									className={`w-full h-32 ${fontMono.className}`}
+								<Editor
+									height="8rem"
+									language="json"
+									theme="vs-dark"
 									value={headers}
-									onChange={((e: ChangeEvent<HTMLTextAreaElement>) => setHeaders(e.target.value))}
+									onChange={(value) => setHeaders(value || "")}
+									options={{ minimap: { enabled: false }, formatOnPaste: true }}
 								/>
 							</Tabs.Content>
 
 							<Tabs.Content value="body">
-								<TextArea
-									placeholder="Request Body (JSON format)"
-									resize="vertical"
-									size="2"
-									className={`w-full h-32 ${fontMono.className}`}
+								<Editor
+									height="8rem"
+									language="json"
+									theme="vs-dark"
 									value={body}
-									onChange={((e: ChangeEvent<HTMLTextAreaElement>) => setBody(e.target.value))}
+									onChange={(value) => setBody(value || "")}
+									options={{ minimap: { enabled: false }, formatOnPaste: true }}
 								/>
 							</Tabs.Content>
 						</Box>
@@ -168,17 +169,21 @@ export default function ApiFetcher() {
 						)}
 					</Flex>
 
-					<Box position="relative">
-						<TextArea
-							id="jsonData"
-							placeholder="Response JSON will appear here..."
-							resize="vertical"
-							className={`w-full min-h-[200px] ${fontMono.className}`}
+					<Box position="relative" className="min-h-[200px] border border-gray-700 rounded-md overflow-hidden">
+						<Editor
+							height="200px"
+							language="json"
+							theme="vs-dark"
 							value={jsonData}
-							readOnly
+							options={{
+								readOnly: true,
+								minimap: { enabled: false },
+								wordWrap: "on",
+								scrollBeyondLastLine: false,
+							}}
 						/>
 						{jsonData && (
-							<Box position="absolute" top="2" right="2">
+							<Box position="absolute" top="2" right="2" style={{ zIndex: 10 }}>
 								<Tooltip content="Copy as JSON">
 									<Button variant="soft" size="1" onClick={handleCopyJsonData}>
 										<Clipboard size={14} />
