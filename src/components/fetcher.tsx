@@ -39,8 +39,14 @@ export default function ApiFetcher() {
 		setApiUrl(e.target.value);
 	};
 
+	const clearResponseState = () => {
+		setStatus(undefined);
+		setResponseJson("");
+	};
+
 	const executeRequest = async () => {
 		if (!apiUrl.trim()) {
+			clearResponseState();
 			setFeedback({ error: true, message: "Please enter a valid URL." });
 			return;
 		}
@@ -48,6 +54,7 @@ export default function ApiFetcher() {
 		try {
 			const { url, params } = parseRequestUrl(apiUrl);
 			if (!url) {
+				clearResponseState();
 				setFeedback({ error: true, message: "Please enter a valid URL." });
 				return;
 			}
@@ -57,6 +64,7 @@ export default function ApiFetcher() {
 				try {
 					parsedBody = JSON.parse(requestBody);
 				} catch {
+					clearResponseState();
 					setFeedback({ error: true, message: "Request body must be valid JSON." });
 					return;
 				}
