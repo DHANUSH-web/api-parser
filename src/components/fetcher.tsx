@@ -22,13 +22,19 @@ export default function ApiFetcher() {
 
 	const handleDisplayJsonData = async () => {
 		try {
-			const args = apiUrl.split("?");
-			setParams(args[1] ? args[1].split("&")?.map(param => param.split("="))?.reduce((acc, [key, value]) => ({ ...acc, [key]: value }), {}) : {});
-			const response = await axios.get(args[0] ?? "", { params: params });
+			const url = new URL(apiUrl);
+			if (url.protocol !== "http:" && url.protocol !== "https:") {
+				throw new Error("Only http and https protocols are allowed");
+			}
+
+			const response = await axios.get(url.toString());
 			setStatus({ status: response.status, message: axios.HttpStatusCode[response.status] });
-			const data = await response.data;
+			const data = response.data;
 			setJsonData(JSON.stringify(data, null, 2));
-			setError({ error: true, message: "Request is successful " });
+			setError({ error: false, message: "Request is successful " });
+
+			const paramsObj = Object.fromEntries(url.searchParams.entries());
+			setParams(paramsObj);
 		} catch (err) {
 			if (isAxiosError(err)) {
 				setStatus({ status: err.response?.status ?? 500, message: axios.HttpStatusCode[err.response?.status ?? 403] });
